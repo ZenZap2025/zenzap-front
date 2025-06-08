@@ -1,0 +1,257 @@
+<!-- Header -->
+<header class="bg-gradient-to-r from-green-600 via-teal-500 to-green-400 text-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+        <img src="assets/zenzap-logo.png" alt="">
+      </div>
+      <span class="text-xl font-bold">Zen Zap</span>
+    </div>
+    <div class="flex space-x-4">
+      <button class="px-4 py-2 bg-white text-green-600 rounded-md hover:bg-green-50 transition-colors">
+        Iniciar sesión
+      </button>
+      <button class="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 transition-colors">
+        Crear cuenta
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="max-w-6xl mx-auto px-6 py-20">
+  <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+    <div class="md:w-1/2 space-y-6">
+      <h1 class="text-5xl font-extrabold text-gray-800 leading-tight">
+        <span class="block">Transforma tu bienestar</span>
+        <span class="block text-green-600 typing">con pausas activas</span>
+      </h1>
+      <p class="text-lg text-gray-600">
+        Integración de salud mental y física para una vida laboral equilibrada.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button class="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white font-medium rounded-md hover:shadow-lg transition-all">
+          Ver carrusel
+        </button>
+        <button class="px-6 py-3 border-2 border-green-500 text-green-700 font-medium rounded-md hover:bg-green-50 transition-all">
+          Conócenos
+        </button>
+      </div>
+    </div>
+    <div class="md:w-1/2 relative">
+      <div class="absolute inset-0 bg-green-500/10 rounded-full blur-xl"></div>
+      <img 
+        src="https://picsum.photos/600/400?random=1" 
+        alt="Meditación en la oficina" 
+        class="rounded-lg shadow-2xl relative z-10"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Carrusel -->
+<section id="carousel" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+      Recomendaciones de Salud
+    </h2>
+
+    <div
+      class="relative overflow-hidden"
+      (mouseenter)="stopCarousel()"
+      (mouseleave)="startCarousel()"
+    >
+      <div
+        id="carouselWrapper"
+        class="flex transition-transform duration-500 ease-in-out"
+        [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+      >
+        <div
+          *ngFor="let slide of slides"
+          class="carousel-slide flex-shrink-0 w-full relative"
+        >
+          <img
+            [src]="slide.image"
+            [alt]="slide.title"
+            class="w-full h-96 object-cover rounded-lg"
+            loading="lazy"
+          />
+          <div
+            class="absolute inset-0 bg-black/60 flex items-center justify-center rounded-lg"
+          >
+            <div class="text-center text-white px-6">
+              <h3 class="text-3xl font-bold mb-3">{{ slide.title }}</h3>
+              <p class="text-lg max-w-md mx-auto">
+                {{ slide.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <button
+        (click)="prevSlide()"
+        aria-label="Anterior"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all"
+      >
+        ‹
+      </button>
+      <button
+        (click)="nextSlide()"
+        aria-label="Siguiente"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 text-white rounded-full hover:bg-black/70 transition-all"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Características -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">¿Por qué elegir Zen Zap?</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Característica 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Recomendaciones Personalizadas</h3>
+        <p class="text-gray-600">Actividades adaptadas a tu horario y necesidades específicas.</p>
+      </div>
+      
+      <!-- Característica 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Seguimiento en Tiempo Real</h3>
+        <p class="text-gray-600">Monitorea tu progreso y logra tus metas diarias.</p>
+      </div>
+      
+      <!-- Característica 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20V18c0-.656.126-1.283.356-1.857M7 20h10a2 2 0 11-4 0 2 2 0 014 0zM7 10a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Comunidad Motivadora</h3>
+        <p class="text-gray-600">Únete a miles de usuarios que cuidan su bienestar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Lo que dicen nuestros usuarios</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Testimonio 1 -->
+      <div class="bg-green-50 p-6 rounded-xl shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="https://picsum.photos/100/100?random=5" alt="Usuario" class="w-12 h-12 rounded-full mr-4" />
+          <div>
+            <h4 class="font-semibold text-gray-800">María G.</h4>
+            <div class="flex text-yellow-400">★★★★★</div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">
+          "¡Mi productividad aumentó un 40%! Las pausas activas me ayudan a mantenerme enfocada durante todo el día."
+        </p>
+      </div>
+      
+      <!-- Testimonio 2 -->
+      <div class="bg-green-50 p-6 rounded-xl shadow-md">
+        <div class="flex items-center mb-4">
+          <img src="https://picsum.photos/100/100?random=6" alt="Usuario" class="w-12 h-12 rounded-full mr-4" />
+          <div>
+            <h4 class="font-semibold text-gray-800">Carlos M.</h4>
+            <div class="flex text-yellow-400">★★★★★</div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">
+          "La meditación guiada me cambió la vida. Ahora duermo mejor y tengo menos estrés."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="py-20 bg-gradient-to-r from-green-600 to-teal-500 text-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">¡Empieza hoy tu cambio!</h2>
+    <p class="text-xl mb-8">Únete a miles de personas que ya transformaron su rutina laboral.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="px-8 py-4 bg-white text-green-600 font-bold rounded-md hover:bg-green-50 transition-colors">
+        Prueba gratis por 7 días
+      </button>
+      <button class="px-8 py-4 border-2 border-white text-white font-bold rounded-md hover:bg-white/10 transition-colors">
+        Conócenos más
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 py-12 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Zen Zap</h3>
+        <p class="text-gray-400">Mejora tu bienestar en el trabajo con nuestras pausas activas y ejercicios personalizados.</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#" class="hover:text-green-400">Inicio</a></li> 
+          <li><a href="#" class="hover:text-green-400">Carrusel</a></li>
+          <li><a href="#" class="hover:text-green-400">Conócenos</a></li>
+          <li><a href="#" class="hover:text-green-400">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Legal</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#" class="hover:text-green-400">Términos</a></li>
+          <li><a href="#" class="hover:text-green-400">Privacidad</a></li>
+          <li><a href="#" class="hover:text-green-400">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89H12v6.988c5.351-.749 9-4.886 9-9.878z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-4.919 1.266.058 1.644.07 4.85.07 3.204 0 3.584-.012 4.849-.07 3.26-.149 4.771-1.699 4.919-4.92.059-1.265.073-1.644.073-4.848 0-3.259-.014-3.667-.073-4.947-.2-3.227-1.664-4.771-4.919-4.919-1.266-.057-1.644-.07-4.849-.07-3.204 0-3.583.014-4.849.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.69.072 4.949.072zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.69-.073 4.949 0 3.259.014 3.668.072 4.948.2 4.354 2.618 6.78 6.98 6.98 1.281.058 1.69.072 4.949.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.624 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 pt-4 border-t border-gray-700 text-sm text-gray-400 text-center">
+      &copy; 2023 Zen Zap. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>

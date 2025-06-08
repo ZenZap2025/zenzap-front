@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Contenedor que agrupa todos los slides; ancho = número de slides × 100% */
+#carouselWrapper {
+  width: 300%; /* Ajusta al número de slides, aquí 3 slides → 3 × 100% */
+}
+
+/* Cada slide ocupa el 100% del contenedor y mantiene la altura deseada */
+.carousel-slide {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Animación de texto tipo escritura */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
