@@ -1,16 +1,37 @@
+<!-- src/app/login/login.component.html -->
 <div class="login-container">
   <div class="login-box">
+    <!-- Lado izquierdo: logo y marca -->
     <div class="login-left">
-      <img src="assets/zenzap-logo.png" alt="Logo" class="logo" />
+      <img src="assets/zenzap-logo.png" alt="Zen Zap Logo" class="logo" />
+      <div class="brand">Zen Zap</div>
+      <div class="slogan">Bienestar en cada pausa</div>
     </div>
+
+    <!-- Lado derecho: formulario -->
     <div class="login-right">
-      <h3>LOGIN</h3>
-      <input type="text" placeholder="usuario" [(ngModel)]="email" name="email" />
-      <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
-      <button (click)="login()">Ingresar</button>
-      <hr />
-      <a href="#">¿Haz olvidado la contraseña?</a><br />
-      <a href="#">¿No tienes cuenta? | Regístrate</a>
+      <h3>Iniciar sesión</h3>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          [(ngModel)]="email"
+        />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Contraseña"
+          required
+          [(ngModel)]="password"
+        />
+        <button type="submit">Entrar</button>
+      </form>
+      <a routerLink="/register">¿No tienes cuenta? Regístrate</a>
+      <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
     </div>
   </div>
 </div>

@@ -1,22 +1,31 @@
-import { routing } from "./app-routing.module";
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./app-routing.module";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { RouterModule } from '@angular/router';
 
-import { LoginComponent } from "./login/login.component";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// Componentes
+import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from "./login/login.component";
 //import { RegisterComponent } from "./register/register.component";
 
-//RegisterComponent
 @NgModule({
-  declarations: [LoginComponent ],
-  imports: [BrowserModule, 
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+   // RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
     FormsModule,
-    routing,
+    RouterModule,
+    AppRoutingModule,
     NgbModule
   ],
   providers: [],
-  bootstrap: [HomeComponent],
+  bootstrap: [AppComponent] // ¡Usa AppComponent como raíz!
 })
 export class AppModule {}
